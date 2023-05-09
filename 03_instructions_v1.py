@@ -29,7 +29,7 @@ def yes_no(question_text):
 def instructions():
     print("**** How to Play ****")
     print()
-    print("The rules of the game will go here")
+    print("The rules of the quiz will go here")
     print()
     print("Program continues")
     print()
