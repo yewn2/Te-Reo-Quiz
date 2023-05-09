@@ -1,5 +1,5 @@
 """
-LU Yes/No
+TRQ Yes/No
 Simplifies the input by converting it to lowercase. Also, accepts y or n as
 abbreviations. Print result of user choice as well as input - for testing
 """

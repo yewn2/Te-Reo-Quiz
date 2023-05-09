@@ -1,5 +1,5 @@
 """
-LU Yes/No
+TRQ Yes/No
 Puts the code created in v2 into a loop to make testing easier and more
 efficient.
 """
