@@ -1,5 +1,5 @@
 """
-LU Yes/No
+TRQ Yes/No
 Based on 01_yes_no_v3
 """
 
