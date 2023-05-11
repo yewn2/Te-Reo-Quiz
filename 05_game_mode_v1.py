@@ -1,3 +1,12 @@
+"""
+Component 3 (Game mode) v1
+Asks user what game mode they would like to play and check that the input is
+a valid game mode (Numbers, Colours, Location Words). If the game mode
+is correct, display a message that tells them what game mode they have chosen.
+Very similar to the age_check component.
+"""
+
+
 game_mode = str(input("The game modes available are:\n"
                       "\tNumbers\n"
                       "\tColours\n"
