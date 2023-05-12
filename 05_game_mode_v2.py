@@ -1,29 +1,37 @@
 """
 Component 3 (Game mode) v2
-Asks user what game mode they would like to play and check that the input is
-a valid game mode (Numbers, Colours, Location Words). If the game mode
-is correct, display a message that tells them what game mode they have chosen.
-Very similar to the age_check component.
+More efficient method, using a try/finally loop and eliminating the longer
+'if' statement at the end
+Also uses a list of the possible modes
 """
 
-
-game_mode = str(input("The game modes available are:\n"
-                      "\tNumbers\n"
-                      "\tColours\n"
-                      "\tLocation Words\n"
-                      "What game mode would you like to play? ")).lower()
+error = "Try again. Please enter a valid game mode (Numbers, Colours, " \
+        "Location Words)\n"
+modes = ["numbers", "colours", "location words"]
+valid = False
+game_mode = ""
 
 # keep asking until valid mode is entered
-while not "numbers" == game_mode or "colours" == game_mode or "location words" == game_mode:
-    print("Try again. Please enter a valid game mode (Numbers, Colours, "
-          "Location Words)")
-    # ask for the input
-    game_mode = str(input("What game mode would you like to play? ")).lower()
+while not valid:
+    try:
+        # ask for game mode
+        game_mode = str(input("The game modes available are:\n"
+                              "\t(1) Numbers\n"
+                              "\t(2) Colours\n"
+                              "\t(3) Location Words\n"
+                              "What game mode would you like to play? ")).lower()
+        print()
+        if game_mode != modes[0] and game_mode != modes[1] and \
+           game_mode != modes[2 ]:
+            valid = False
+        else:
+            valid = True
 
-# set and display game mode according to one of the three possible answers
-if game_mode == "numbers":
-    print("You have set the game mode to Numbers!")
-if game_mode == "colours":
-    print("You have set the game mode to Colours!")
-if game_mode == "location words":
-    print("You have set the game mode to Location Words!")
+    finally:
+        if not valid:
+            print(error)
+        else:
+            # set and display game mode according to one of the three
+            # possible answers
+            print("You have set the game mode to {}."
+                  .format(game_mode.title()))
