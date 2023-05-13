@@ -22,7 +22,7 @@ while not valid:
                               "What game mode would you like to play? ")).lower()
         print()
         if game_mode != modes[0] and game_mode != modes[1] and \
-           game_mode != modes[2 ]:
+           game_mode != modes[2]:
             valid = False
         else:
             valid = True
