@@ -39,5 +39,5 @@ def mode():
 
 
 # main routine
-game_mode = mode()
+game_mode = mode().title()
 print(game_mode)
