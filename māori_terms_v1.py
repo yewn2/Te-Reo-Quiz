@@ -1,3 +1,9 @@
+"""
+māori_terms v1
+used to display terms, in English and Māori
+"""
+
+
 # game mode used for testing
 game_mode = "Numbers"
 # possible game modes
@@ -14,6 +20,10 @@ māori_colours = ["whero", "karaka", "kōwhai", "kākāriki", "kikorangi",
                  "waiporoporo", "paraone", "māwhero", "mā", "pango"]
 colours = ["red", "orange", "yellow", "green", "blue", "purple", "brown",
            "pink", "white", "black"]
+māori_locatives = ["kei", "runga", "raro", "roto", "muri", "waenganui", "mauῑ",
+                   "matau", "mua", "waho"]
+locatives = ["at", "on", "under", "inside", "behind", "in between", "left side",
+             "right side", "in front", "outside"]
 if game_mode == game_modes[0]:
     print(māori_statement)
     print(māori_numbers)
@@ -24,3 +34,8 @@ elif game_mode == game_modes[1]:
     print(māori_colours)
     print(english_statement)
     print(colours)
+else:
+    print(māori_statement)
+    print(māori_locatives)
+    print(english_statement)
+    print(locatives)
