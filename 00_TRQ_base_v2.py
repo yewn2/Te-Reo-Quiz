@@ -2,7 +2,6 @@
 Version 2 - Te Reo Quiz base component
 """
 
-
 # Imports
 import sys
 
@@ -42,7 +41,8 @@ def instructions():
 # age checking function
 def num_check(question, low, high):
     error = ("That was not a valid input\n"
-             "Please enter a valid number between {} and {}\n".format(low, high))
+             "Please enter a valid number between {} and {}\n".format(low,
+                                                                      high))
 
     # Keep asking until a valid amount (1-100) is entered
     while True:
@@ -73,13 +73,14 @@ def mode():
         try:
             # ask for game mode
             game_mode_1 = str(input("The game modes available are:\n"
-                                  "\t(1) Numbers\n"
-                                  "\t(2) Colours\n"
-                                  "\t(3) Location Words\n"
-                                  "What game mode would you like to play? ")).lower()
+                                    "\t(1) Numbers\n"
+                                    "\t(2) Colours\n"
+                                    "\t(3) Location Words\n"
+                                    "What game mode would you like to "
+                                    "play? ")).lower()
             print()
             if game_mode_1 != modes[0] and game_mode_1 != modes[1] and \
-               game_mode_1 != modes[2]:
+                    game_mode_1 != modes[2]:
                 valid = False
             else:
                 valid = True
@@ -103,7 +104,8 @@ def show_terms(mode_used):
     māori_statement = "These are the Māori {}".format(game_mode)
     english_statement = "These are the English {}".format(game_mode)
     # the māori terms and corresponding english terms beneath
-    māori_numbers = ["tahi", "rua", "toru", "whā", "rima", "ono", "whitu", "waru",
+    māori_numbers = ["tahi", "rua", "toru", "whā", "rima", "ono", "whitu",
+                     "waru",
                      "tekau"]
     numbers = ["one", "two", "three", "four", "five", "six", "seven", "eight",
                "nine", "ten"]
@@ -111,9 +113,11 @@ def show_terms(mode_used):
                      "waiporoporo", "paraone", "māwhero", "mā", "pango"]
     colours = ["red", "orange", "yellow", "green", "blue", "purple", "brown",
                "pink", "white", "black"]
-    māori_locatives = ["kei", "runga", "raro", "roto", "muri", "waenganui", "mauῑ",
+    māori_locatives = ["kei", "runga", "raro", "roto", "muri", "waenganui",
+                       "mauῑ",
                        "matau", "mua", "waho"]
-    locatives = ["at", "on", "under", "inside", "behind", "in between", "left side",
+    locatives = ["at", "on", "under", "inside", "behind", "in between",
+                 "left side",
                  "right side", "in front", "outside"]
     if mode_used == game_modes[0]:
         print(māori_statement)
