@@ -1,5 +1,5 @@
 """
-māori_terms v1
+Component 4 (Māori terms) v1
 used to display terms, in English and Māori
 """
 
