@@ -1,5 +1,5 @@
 """
-māori_terms v2
+Component 4 (Māori terms) v2
 changing v1 into a function for easier use
 """
 
