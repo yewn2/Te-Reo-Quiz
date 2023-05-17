@@ -51,11 +51,14 @@ location_words = {'kei': 'at',
 # answer list
 answers = []
 
-# question template
+# question template + error message
 question = "The Māori term '{}' in English is:\n" \
            "\t(1) {}\n" \
            "\t(2) {}\n" \
-           "\t(3) {}\n"
+           "\t(3) {}\n" \
+           "Please answer with what is written.\n" \
+           "Answer: "
+error = "Please enter one of the three listed answers.\n"
 
 # picking term + answer according to game mode
 if game_mode == game_modes_[0]:
@@ -78,7 +81,6 @@ term = t_a[0]
 correct_ans = t_a[1]
 incorrect_1 = random.choice(answers)
 incorrect_2 = random.choice(answers)
-answer_list = [correct_ans, incorrect_1, incorrect_2]
 
 # check for same answers
 while not incorrect_1 != incorrect_2 != correct_ans:
@@ -88,12 +90,13 @@ while not incorrect_1 != incorrect_2 != correct_ans:
         incorrect_1 = random.choice(answers)
     while correct_ans == incorrect_2:
         incorrect_2 = random.choice(answers)
+answer_list = [correct_ans, incorrect_1, incorrect_2]
 
 # setting 3 choices randomly and checking to make sure there are no duplicates
 choice1 = random.choice(answer_list)
 choice2 = random.choice(answer_list)
 choice3 = random.choice(answer_list)
-while not choice1 != choice2 != choice3:
+while not choice1 != choice2 != choice3 != choice1:
     while choice1 == choice2:
         choice1 = random.choice(answer_list)
     while choice2 == choice3:
@@ -101,5 +104,24 @@ while not choice1 != choice2 != choice3:
     while choice1 == choice3:
         choice3 = random.choice(answer_list)
 
+
 # print the question
-answer = input(question.format(term, choice1, choice2, choice3))
+answer = input(question.format(term, choice1, choice2, choice3)).lower()
+
+# make sure that answer is one of the choices
+while answer != choice1 and answer != choice2 and answer != choice3:
+    print(error)
+    answer = input(question.format(term, choice1, choice2, choice3)).lower()
+
+# amount of starting points (0) and correct/incorrect statements
+points = 0
+corr_state = "Correct! +50 points"
+incorr_state = "Incorrect! -20 points"
+
+# check if answer is correct
+if answer == correct_ans:
+    print(corr_state)
+    points += 50
+else:
+    print(incorr_state)
+    points -= 20
