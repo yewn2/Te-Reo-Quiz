@@ -38,6 +38,10 @@ def show_terms(mode_used):
         print(māori_locatives)
         print(english_statement)
         print(locatives)
+    keep_going = input("Press enter when finished.")
+    # prints ten thousand lines to prevent cheating
+    for i in range(1, 10000):
+        print()
 
 
 # main routine
