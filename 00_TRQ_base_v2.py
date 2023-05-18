@@ -198,48 +198,44 @@ def question_answer_points(mode_used, question_amount):
     while questions <= question_amount:
         # picking term + answer according to game mode
         if mode_used == game_modes_[0]:
-            t_a = random.choice(list(numbers.items()))
+            term_answer = random.choice(list(numbers.items()))
             answers = ["one", "two", "three", "four", "five", "six", "seven", "eight",
                        "nine", "ten"]
         elif mode_used == game_modes_[1]:
-            t_a = random.choice(list(colours.items()))
+            term_answer = random.choice(list(colours.items()))
             answers = ["red", "orange", "yellow", "green", "blue", "purple", "brown",
                        "pink", "white", "black"]
         else:
-            t_a = random.choice(list(location_words.items()))
+            term_answer = random.choice(list(location_words.items()))
             answers = ["at", "on", "under", "inside", "behind", "in between",
                        "left side", "right side", "in front", "outside"]
 
         # assigning term
-        term = t_a[0]
+        term = term_answer[0]
 
         # setting 1 correct and 2 incorrect answers according to game mode
-        correct_ans = t_a[1]
-        incorrect_1 = random.choice(answers)
-        incorrect_2 = random.choice(answers)
+        correct_ans = term_answer[1]
+
+        incorrect_1 = term_answer[1]
+        incorrect_2 = term_answer[1]
 
         # check for same answers
-        while not incorrect_1 != incorrect_2 != correct_ans:
-            while incorrect_1 == incorrect_2:
-                incorrect_1 = random.choice(answers)
-            while correct_ans == incorrect_1:
-                incorrect_1 = random.choice(answers)
-            while correct_ans == incorrect_2:
-                incorrect_2 = random.choice(answers)
+        while correct_ans == incorrect_1 or correct_ans == incorrect_2 or incorrect_1 == incorrect_2:
+            incorrect_1 = random.choice(answers)
+            incorrect_2 = random.choice(answers)
         answer_list = [correct_ans, incorrect_1, incorrect_2]
 
         # setting 3 choices randomly and checking to make sure
         # there are no duplicates
-        choice1 = random.choice(answer_list)
-        choice2 = random.choice(answer_list)
-        choice3 = random.choice(answer_list)
-        while not choice1 != choice2 != choice3 != choice1:
-            while choice1 == choice2:
-                choice1 = random.choice(answer_list)
-            while choice2 == choice3:
-                choice2 = random.choice(answer_list)
-            while choice1 == choice3:
-                choice3 = random.choice(answer_list)
+        choice1 = ""
+        choice2 = ""
+        choice3 = ""
+
+        while choice1 == choice2 or choice1 == choice3 or choice2 == choice3:
+            choice1 = random.choice(answer_list)
+            choice2 = random.choice(answer_list)
+            choice3 = random.choice(answer_list)
+
 
         # print the question
         answer = input(question.format(questions, term, choice1,
