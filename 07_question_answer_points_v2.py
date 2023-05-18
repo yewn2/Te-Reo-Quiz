@@ -64,26 +64,26 @@ def question_answer_points(mode_used, question_amount):
     while questions <= question_amount:
         # picking term + answer according to game mode
         if mode_used == game_modes_[0]:
-            t_a = random.choice(list(numbers.items()))
+            term_answer = random.choice(list(numbers.items()))
             answers = ["one", "two", "three", "four", "five", "six", "seven", "eight",
                        "nine", "ten"]
         elif mode_used == game_modes_[1]:
-            t_a = random.choice(list(colours.items()))
+            term_answer = random.choice(list(colours.items()))
             answers = ["red", "orange", "yellow", "green", "blue", "purple", "brown",
                        "pink", "white", "black"]
         else:
-            t_a = random.choice(list(location_words.items()))
+            term_answer = random.choice(list(location_words.items()))
             answers = ["at", "on", "under", "inside", "behind", "in between",
                        "left side", "right side", "in front", "outside"]
 
         # assigning term
-        term = t_a[0]
+        term = term_answer[0]
 
         # setting 1 correct and 2 incorrect answers according to game mode
-        correct_ans = t_a[1]
+        correct_ans = term_answer[1]
 
-        incorrect_1 = t_a[1]
-        incorrect_2 = t_a[1]
+        incorrect_1 = term_answer[1]
+        incorrect_2 = term_answer[1]
 
         # check for same answers
         while correct_ans == incorrect_1 or correct_ans == incorrect_2 or incorrect_1 == incorrect_2:
