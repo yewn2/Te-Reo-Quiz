@@ -209,12 +209,12 @@ def question_answer_points(mode_used, question_amount):
         # picking term + answer according to game mode
         if mode_used == game_modes_[0]:
             term_answer = random.choice(list(numbers.items()))
-            answers = ["one", "two", "three", "four", "five", "six", "seven", "eight",
-                       "nine", "ten"]
+            answers = ["one", "two", "three", "four", "five", "six", "seven",
+                       "eight", "nine", "ten"]
         elif mode_used == game_modes_[1]:
             term_answer = random.choice(list(colours.items()))
-            answers = ["red", "orange", "yellow", "green", "blue", "purple", "brown",
-                       "pink", "white", "black"]
+            answers = ["red", "orange", "yellow", "green", "blue", "purple",
+                       "brown", "pink", "white", "black"]
         else:
             term_answer = random.choice(list(location_words.items()))
             answers = ["at", "on", "under", "inside", "behind", "in between",
@@ -230,7 +230,8 @@ def question_answer_points(mode_used, question_amount):
         incorrect_2 = term_answer[1]
 
         # check for same answers
-        while correct_ans == incorrect_1 or correct_ans == incorrect_2 or incorrect_1 == incorrect_2:
+        while correct_ans == incorrect_1 or correct_ans == incorrect_2 or \
+                incorrect_1 == incorrect_2:
             incorrect_1 = random.choice(answers)
             incorrect_2 = random.choice(answers)
         answer_list = [correct_ans, incorrect_1, incorrect_2]
@@ -265,7 +266,6 @@ def question_answer_points(mode_used, question_amount):
         if answer == correct_ans:
             print(formatter("!", correct_state))
             points += 50
-            correct_questions += 1
         else:
             print(formatter("|", incorrect_state))
             points -= 20
