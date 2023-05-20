@@ -146,7 +146,7 @@ def show_terms(mode_used):
         print(māori_locatives)
         print(english_statement)
         print(locatives)
-    keep_going = input("Press enter when finished.")
+    print(input("Press enter when finished."))
     # prints one hundred thousand lines to prevent cheating
     for i in range(1, 100000):
         print()
@@ -192,9 +192,6 @@ def question_answer_points(mode_used, question_amount):
                       'mua': 'in front',
                       'waho': 'outside'}
 
-    # answer list
-    answers = []
-
     # question template + error message
     question = "The Māori term '{}' in English is:\n" \
                "\t(1) {}\n" \
@@ -207,6 +204,7 @@ def question_answer_points(mode_used, question_amount):
     # sets amount of questions
     while questions <= question_amount:
         # picking term + answer according to game mode
+        # setting answer list
         if mode_used == game_modes_[0]:
             term_answer = random.choice(list(numbers.items()))
             answers = ["one", "two", "three", "four", "five", "six", "seven",
